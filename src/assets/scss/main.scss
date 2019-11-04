@@ -1,0 +1,97 @@
+@import './utils/reset';
+@import './utils/libs';
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  color: $mainColor;
+  font-size: $mainFontSize;
+  line-height: $mainLineHeight;
+  font-family: $mainFont;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+.h1 {
+  margin: 0 0 35px;
+  color: $success;
+  font-family: $titleFont;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  text-transform: none;
+  @media sceen and (max-width: $tableWidth) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  @media sceen and (max-width: $smPhoneWidth) {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+
+h2,
+.h2 {
+  font-family: $titleFont;
+  font-style: normal;
+  font-weight: 700;
+  font-size: rem(19);
+  line-height: rem(24);
+  letter-spacing: -0.1px;
+}
+
+h3,
+.h3 {
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  text-transform: none;
+}
+
+a {
+  color: $mainColor50;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $purple;
+  }
+}
+
+.wrapper {
+  max-width: 1180px;
+  padding: 0 10px;
+  margin: 0 auto;
+  &.wrapper-ui-kit {
+    max-width: 1460px;
+  }
+}
+
+.mobile-href {
+  pointer-events: none;
+}
+
+@media screen and (max-width: $smDesktopWidth) {
+  .mobile-href {
+    pointer-events: auto;
+  }
+}
+
+section,
+.section {
+  position: relative;
+  padding: 40px 0;
+}
