@@ -1,0 +1,9 @@
+mixin card(items)
+  if items
+    .cards
+      each item in items
+        article(class="card" + item.class)
+          h3(class="card__title")= item.title
+  else
+    article(class="card" + item.class)
+      h3(class="card__title")= item.title
