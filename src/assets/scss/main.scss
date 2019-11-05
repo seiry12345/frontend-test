@@ -4,6 +4,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  background-color: $success-very-light;
   color: $mainColor;
   font-size: $mainFontSize;
   line-height: $mainLineHeight;
@@ -29,11 +30,12 @@ h1,
   font-size: 40px;
   line-height: 56px;
   text-transform: none;
-  @media sceen and (max-width: $tableWidth) {
+  text-align: center;
+  @media screen and (max-width: $tableWidth) {
     font-size: 32px;
     line-height: 48px;
   }
-  @media sceen and (max-width: $smPhoneWidth) {
+  @media screen and (max-width: $smPhoneWidth) {
     font-size: 28px;
     line-height: 40px;
   }
@@ -57,41 +59,27 @@ h3,
   font-size: 20px;
   line-height: 32px;
   text-transform: none;
+  @media screen and (max-width: $phoneWidth) {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 a {
-  color: $mainColor50;
-  font-weight: 700;
+  color: #fff;
   text-decoration: none;
-  transition: all 0.3s ease;
-  &:hover,
-  &:active,
-  &:focus {
-    color: $purple;
-  }
-}
-
-.wrapper {
-  max-width: 1180px;
-  padding: 0 10px;
-  margin: 0 auto;
-  &.wrapper-ui-kit {
-    max-width: 1460px;
-  }
 }
 
 .mobile-href {
   pointer-events: none;
 }
 
+@media screen and (max-width: 1100px) {
+
+}
+
 @media screen and (max-width: $smDesktopWidth) {
   .mobile-href {
     pointer-events: auto;
   }
-}
-
-section,
-.section {
-  position: relative;
-  padding: 40px 0;
 }

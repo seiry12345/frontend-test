@@ -9,5 +9,9 @@ import 'jquery/dist/jquery.min'
 
 // slick
 import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick.min'
+import 'slick-carousel/slick/slick'
+
+//card
+import '../../components/card/card.scss'
+import '../../components/card/card'
 

@@ -1,9 +1,4 @@
-mixin card(items)
-  if items
-    .cards
-      each item in items
-        article(class="card" + item.class)
-          h3(class="card__title")= item.title
-  else
-    article(class="card" + item.class)
-      h3(class="card__title")= item.title
+mixin card(attrs)
+  article(class="card " + attrs.class)
+    h3(class="card__title")
+      a(href= attrs.href, title= attrs.title)= attrs.title

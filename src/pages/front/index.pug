@@ -1,8 +1,36 @@
 extends ../../layouts/page.pug
 
-block content
-- const cardsItems = [{}]
-  .container
-    section.exel
-      h1 Excel in Academic Writing with Our Guides
+include ../../components/card/card.pug
 
+block content
+  - const card1 = {"href": "#", "class": "", "title": "Study Abroad Stress: The Complete Guide for International Students"};
+  - const card2 = {"href": "#", "class": "card--vlines card--green", "title": "Good GPA—Why Do You Need It & How To Improve It"};
+  - const card3 = {"href": "#", "class": "card--hlines card--orange", "title": "How to Prevent Unintentional Plagiarism"};
+  - const card4 = {"href": "#", "class": "card--hlines", "title": "How to Study Effectively: 11 Tricks to Save Time Studying"};
+  - const card5 = {"href": "#", "class": "card--vlines card--orange", "title": "A Complete Guide to Essay Writing—Make it Simple"};
+  - const card6 = {"href": "#", "class": "card--green", "title": "12 Affordable Places You Must Visit on Student Holidays this Year"};
+    section.excel
+      .container
+        h1 Excel in Academic Writing with Our Guides
+        .cards
+          .row
+            +card(card1)
+            +card(card4)
+            +card(card2)
+            +card(card5)
+            +card(card3)
+            +card(card6)
+
+            +card(card1)
+            +card(card4)
+            +card(card2)
+            +card(card5)
+            +card(card3)
+            +card(card6)
+
+            +card(card1)
+            +card(card4)
+            +card(card2)
+            +card(card5)
+            +card(card3)
+            +card(card6)
