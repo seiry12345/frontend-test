@@ -65,7 +65,7 @@
     bottom: -18px;
     width: 48px;
     height: 48px;
-    background: url("/assets/img/card/arrow.png") no-repeat center;
+    background: url("/assets/images/card/arrow.png") no-repeat center;
     outline: none;
     border-radius: 50%;
     border: none;
@@ -96,7 +96,7 @@
   min-height: 352px;
   padding: 30px;
   margin: 0 15px 30px;
-  background: $success-light url("/assets/img/card/dotted.png") no-repeat center;
+  background: $success-light url("/assets/images/card/dotted.png") no-repeat center;
   border-radius: 8px;
   cursor: pointer;
 
@@ -136,11 +136,11 @@
   }
 
   &--vlines {
-    background-image: url("/assets/img/card/vlines.png");
+    background-image: url("/assets/images/card/vlines.png");
   }
 
   &--hlines {
-    background-image: url("/assets/img/card/hlines.png");
+    background-image: url("/assets/images/card/hlines.png");
   }
 
   &--green {
