@@ -1,27 +1,63 @@
 if ($('.cards').length) {
-  function dotsOnInit (_this) {
-    _this.find('.slick-dots .slick-active').addClass('slick-dots--show');
-    _this.find('.slick-dots .slick-active').next().addClass('slick-dots--show');
-    _this.find('.slick-dots .slick-active').next().next().addClass('slick-dots--show');
+  let totalDots = 3;
+  if ($(window).width() < 481) {
+    totalDots = 6;
   }
 
-  function dotsOnChange (_this) {
-    _this.find('.slick-dots .slick-active').prev().addClass('slick-dots--show');
-    _this.find('.slick-dots .slick-active').addClass('slick-dots--show');
-    _this.find('.slick-dots .slick-active').next().addClass('slick-dots--show');
-  }
+  // functions
+  function dotsOnInit(slickDots, totalDots) {
+    slickDots.each((i, dot) => {
+      if (i < totalDots) {
+        $(dot).addClass('slick-dots--show');
+      }
+    });
+  };
 
-  function dotsOnEnd (_this) {
-    _this.find('.slick-dots .slick-active').addClass('slick-dots--show');
-    _this.find('.slick-dots .slick-active').prev().addClass('slick-dots--show');
-    _this.find('.slick-dots .slick-active').prev().prev().addClass('slick-dots--show');
-  }
+  function dotsOnChange(slickDots, totalDots) {
+    slickDots.each((i, dot) => {
+      if ($(dot).hasClass('slick-active')) {
+        if (totalDots === 3) {
+          $(dot).prev().addClass('slick-dots--show');
+          $(dot).addClass('slick-dots--show');
+          $(dot).next().addClass('slick-dots--show');
+        }
 
+        if (totalDots === 6) {
+          $(dot).prev().prev().addClass('slick-dots--show');
+          $(dot).prev().addClass('slick-dots--show');
+          $(dot).addClass('slick-dots--show');
+          $(dot).next().addClass('slick-dots--show');
+          $(dot).next().next().addClass('slick-dots--show');
+          $(dot).next().next().next().addClass('slick-dots--show');
+        }
+      }
+    });
+  };
+
+  function dotsOnEnd(slickDots, totalDots) {
+    slickDots.each((i, dot) => {
+      if (i > slickDots.length - totalDots) {
+        $(dot).addClass('slick-dots--show');
+      }
+    });
+  };
+  // --- --- ---
+
+  // on init
   $('.cards .row').on('init', function () {
     const _this = $(this);
-    dotsOnInit(_this);
-  })
+    const slickDots = _this.find('.slick-dots li');
 
+    // change slick-dots width for 6 dots
+    if (totalDots === 6) {
+      _this.find('.slick-dots').css({"width": "96px"});
+    }
+
+    dotsOnInit(slickDots, totalDots);
+  });
+  // --- --- ---
+
+  // slick init
   $('.cards .row').slick({
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -47,25 +83,37 @@ if ($('.cards').length) {
           slidesToScroll: 1,
           rows: 1,
         }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: 1,
+          arrows: false
+        }
       }
     ]
   });
+  // --- --- ---
 
+  // on after change
   $('.cards .row').on('afterChange', function (e, slick, currentSlide) {
     const _this = $(this);
+    const slickDots = _this.find('.slick-dots li');
 
     _this.find('.slick-dots li').removeClass('slick-dots--show');
-    dotsOnChange(_this);
 
-    if (currentSlide === 0) {
-      dotsOnInit(_this);
-    }
-
-    if (currentSlide + 1 === slick.slideCount) {
-      dotsOnEnd(_this);
+    if (currentSlide < totalDots - 1) {
+      dotsOnInit(slickDots, totalDots);
+    } else if (currentSlide + 1 === slick.slideCount) {
+      dotsOnEnd(slickDots, totalDots);
+    } else {
+      dotsOnChange(slickDots, totalDots);
     }
   });
 }
+// --- --- ---
 
 // trigger href on card click
 function targetHref(selector) {
@@ -82,3 +130,4 @@ function targetHref(selector) {
 }
 
 targetHref('.card');
+// --- --- ---

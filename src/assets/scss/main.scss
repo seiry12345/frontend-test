@@ -22,7 +22,7 @@ html {
 
 h1,
 .h1 {
-  margin: 0 0 35px;
+  margin: 0 0 42px;
   color: $success;
   font-family: $titleFont;
   font-style: normal;
@@ -35,20 +35,10 @@ h1,
     font-size: 32px;
     line-height: 48px;
   }
-  @media screen and (max-width: $smPhoneWidth) {
+  @media screen and (max-width: $phoneWidth) {
     font-size: 28px;
     line-height: 40px;
   }
-}
-
-h2,
-.h2 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 700;
-  font-size: rem(19);
-  line-height: rem(24);
-  letter-spacing: -0.1px;
 }
 
 h3,
@@ -68,18 +58,4 @@ h3,
 a {
   color: #fff;
   text-decoration: none;
-}
-
-.mobile-href {
-  pointer-events: none;
-}
-
-@media screen and (max-width: 1100px) {
-
-}
-
-@media screen and (max-width: $smDesktopWidth) {
-  .mobile-href {
-    pointer-events: auto;
-  }
 }

@@ -12,7 +12,7 @@
     width: 48px;
     height: 10px;
     padding: 0;
-    margin: 14px auto 0;
+    margin: 16px auto 0;
     li {
       display: none;
       width: 6px;
@@ -21,6 +21,12 @@
       background-color: rgba($success, 0.25);
       border: none;
       border-radius: 50%;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
 
       &.slick-active {
         width: 10px;
@@ -56,7 +62,7 @@
     opacity: 0.3;
     position: absolute;
     z-index: 2;
-    bottom: -21px;
+    bottom: -18px;
     width: 48px;
     height: 48px;
     background: url("/assets/img/card/arrow.png") no-repeat center;
@@ -71,12 +77,12 @@
   }
   .slick-prev {
     left: 50%;
-    margin-left: -102px;
+    margin-left: -130px;
     transform: rotate(-180deg);
   }
   .slick-next {
     right: 50%;
-    margin-right: -108px;
+    margin-right: -130px;
   }
 }
 
@@ -163,19 +169,28 @@
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: $smDesktopWidth) {
   .card {
     width: 328px !important;
-    height: 328px;
+    min-height: 328px;
     margin: 0 15px 30px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .cards {
-
-  }
   .card {
     margin: 0 auto 30px;
+  }
+}
+
+@media screen and (max-width: $phoneWidth) {
+  .cards {
+    .slick-dots {
+      margin-top: 0;
+    }
+  }
+  .card {
+    width: 244px !important;
+    min-height: 244px;
   }
 }

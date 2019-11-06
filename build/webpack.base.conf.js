@@ -17,7 +17,7 @@ module.exports = {
   },
 
   entry: {
-    formElements: `${PATHS.src}/pages/front/index`
+    front: `${PATHS.src}/pages/front/index`
   },
 
   output: {

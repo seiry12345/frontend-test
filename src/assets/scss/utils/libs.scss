@@ -1,14 +1,13 @@
 @import '~normalize.css/normalize';
 
-// bootstrap
 $container-max-widths: (
-        sm: 688px,
-        md: 688px,
-        lg: 960px,
-        xl: 1120px
+  sm: 688px,
+  md: 688px,
+  lg: 960px,
+  xl: 1120px
 );
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/grid";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
