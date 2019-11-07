@@ -21,8 +21,7 @@ module.exports = {
 
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
-    path: PATHS.dist,
-    publicPath: '/'
+    path: PATHS.dist
   },
 
   optimization: {
@@ -55,10 +54,18 @@ module.exports = {
       },
 
       {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: `[name].[ext]`
+        }
+      },
+
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]'
+          name: '/assets/images/[name].[ext]'
         }
       },
 
@@ -69,15 +76,18 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {sourceMap: true}
+            options: { sourceMap: true }
           },
           {
             loader: 'postcss-loader',
-            options: {sourceMap: true}
+            options: {
+              sourceMap: true,
+              config: { path: `./postcss.config.js` }
+            }
           },
           {
             loader: 'sass-loader',
-            options: {sourceMap: true}
+            options: { sourceMap: true }
           },
           {
             loader: 'sass-resources-loader',
@@ -94,24 +104,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {sourceMap: true}
+            options: { sourceMap: true }
           },
           {
             loader: 'postcss-loader',
-            options: {sourceMap: true}
+            options: {
+              sourceMap: true,
+              config: { path: `./postcss.config.js` }
+            }
           }
         ]
-      },
-
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
-        }
       }
     ]
   },
@@ -133,15 +139,15 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      {
-        from: `${PATHS.src}/${PATHS.assets}images`,
-        to: `${PATHS.assets}images`
-      },
+      // {
+      //   from: `${PATHS.src}/${PATHS.assets}images`,
+      //   to: `${PATHS.assets}/images`
+      // },
       {
         from: `${PATHS.src}/${PATHS.assets}fonts`,
         to: `${PATHS.assets}fonts`
       },
-      {from: `${PATHS.src}/static`, to: ''}
+      { from: `${PATHS.src}/static`, to: '' }
     ])
   ]
 };
